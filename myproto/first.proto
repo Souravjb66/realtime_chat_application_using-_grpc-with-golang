@@ -1,0 +1,26 @@
+syntax="proto3";
+option go_package="./";
+message UserOne{
+    string Chat=1;
+    int32 Id=2;
+
+}
+message UserTwo{
+    string Chat=1;
+    int32 Id=2;
+
+}
+message ServerResOne{
+    string Reply=1;
+
+
+}
+message ServerResTwo{
+    string Reply=1;
+
+}
+service Chat{
+    rpc SendToUserOne(stream UserOne)returns(stream ServerResOne);
+    rpc SendToUserTwo(stream UserTwo)returns(stream ServerResTwo);
+    
+}
